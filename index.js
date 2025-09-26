@@ -50,37 +50,48 @@
 
 const listData = ["alex", "hamza", "jamal"]; //This is the list data
 const listId = document.getElementById("myList"); //This is the list element
-updateList();
 
-function updateList() {
-	const displayData = listData.map((item) => {
-		//This renders the list by adding aelements for each item in the list
-		const li = document.createElement("li");
-		li.innerText = item;
-		return li;
-	});
-
-	listId.children = null;
-
-	displayData.forEach((item) => {
-		//This renders the list by adding aelements for each item in the list
-		listId.append(item);
-	});
-}
+// THis should run every time listData is changed
+listId. = listData.map((item) => {
+	//This renders the list by adding aelements for each item in the list
+	const li = document.createElement("li");
+	li.innerText = item;
+	return li;
+});
 
 ///When you press a button linked to this function, it executes, adding a name to the list above.
 function addName(name) {
-	const li = document.createElement("li");
-	li.innerText = name;
-	listId.appendChild(li);
+	listData.append(name)
+	// const li = document.createElement("li");
+	// li.innerText = name;
+	// listId.appendChild(li);
+
+	if (listData.length > 0) {
+		warningDiv.classList.remove("displaynone")
+	}
 }
 
 //When a button is pressed, this function will remove the last name in the list, IF there are any items in the list
 function removeLastName() {
-	if (listData.length <= 0) return;
 
+	if (listData.length <= 0) {
+		const warningDiv = document.getElementById("warning")
+		warningDiv.classList.remove("displaynone")
+		return;
+	};
 	listData.pop();
 	// updateList();
-
-	listId.lastChild.remove();
+	// listId.lastChild.remove();
 }
+
+/*
+1.create div class name = displaynone > alertdiv (display: none)
+
+2. toggle button hidden to show
+
+
+toggle button
+
+
+
+*/

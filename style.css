@@ -1,0 +1,13 @@
+:root {
+    background-color: rgb(41, 41, 41);
+    color: white;
+}
+
+h2 {
+    color: red;
+    display: block;
+}
+
+.displaynone {
+    display: none;
+}
