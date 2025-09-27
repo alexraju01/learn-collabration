@@ -71,14 +71,14 @@ function updateSrc() {
   if (imgIndex < Object.keys(imgSrcList).length) {
     imgIndex = imgIndex += 1;
     console.log(
-      `Image Index: ${imgIndex} imgSrcList.length: ${
-        Object.keys(imgSrcList).length
+      `Image Index: ${imgIndex} imgSrcList.length: ${Object.keys(imgSrcList).length
       }`
     );
+
     imageID.src = imgSrcList[`img_${imgIndex}`];
   } else {
-    imgIndex = 0;
-    imageID.src = imgSrcList.img_1;
+    imageID.src = imgSrcList['img_1'];
+    imgIndex = 1;
   }
 }
 
