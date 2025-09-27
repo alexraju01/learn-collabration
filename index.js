@@ -42,9 +42,9 @@ function removeLastName() {
 }
 
 // ============ JS CHALLENGES ============
-// 1. Make a button that hides and shows an image
-// 2. Make a button that toggles the image between two or more images
-// 3. Make a two text input that accept numbers between 0 and 100. Add a button to sum the two numbers and display the answer.
+// 1. Make a button that hides and shows an image -- COMPLETE
+// 2. Make a button that toggles the image between two or more images -- COMPLETE
+// 3. Make a two text input that accept numbers between 0 and 100. Add a button to sum the two numbers and display the answer. -- IN PROGRESS
 
 // Store source of all images we want to rotate through
 const imgSrcList = {
