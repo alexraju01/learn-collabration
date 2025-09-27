@@ -48,13 +48,26 @@ function removeLastName() {
 // 3. Make a two text input that accept numbers between 0 and 100. Add a button to sum the two numbers and display the answer.
 
 // Store source of all images we want to rotate through
-const imgSrcList = [];
+const imgSrcList = {
+	img_1: "assets/images/desert-life.jpg",
+	img_2: "path_to_image",
+	img_3: "path_to_image",
+	img_4: "path_to_image",
+	img_5: "path_to_image",
+};
 const imageID = document.getElementById("imageID")
+
+// sets the initial src of the image
+imageID.src = imgSrcList.img_1
 
 // when "Toggle Image" btn is pressed, this function shows and hides the image below 
 function toggleImage () {
 	if (imageID.classList.contains("displaynone")){
-		imageID.classList.remove("displaynone")
+		imageID.classList.remove("displaynone");
 	}
 	else imageID.classList.add("displaynone")
+}
+
+function updateSrc () {
+	
 }
