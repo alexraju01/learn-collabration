@@ -1,63 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <title>Document</title>
+  </head>
 
-<head>
-	<meta charset="UTF-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<link rel="stylesheet" type="text/css" href="style.css" />
-	<title>Document</title>
+  <body>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <h1 id="header">alex's branch</h1>
+    <h2>second changes</h2>
 
-</head>
-<style>
-	nav {
-		background-color: #333;
-		overflow: hidden;
-	}
+    <input id="name" type="text" />
+    <button
+      type="button"
+      onclick="addName(document.getElementById('name').value)"
+    >
+      Add Name
+    </button>
+    <button type="button" onClick="removeLastName()">Remove Name</button>
+    <!-- Here -->
+    <div id="warning" class="displaynone">
+      ERROR: YOU CANNOT REMOVE WHEN THERE IS NO ITEMS
+    </div>
+    <ul id="myList"></ul>
 
-	nav a {
-		float: left;
-		display: block;
-		color: #f2f2f2;
-		text-align: center;
-		padding: 14px 16px;
-		text-decoration: none;
-	}
+    <!-- Image Section -->
+    <section class="image-section">
+      <button type="button" onclick="toggleImage()">Toggle Image</button>
+      <button type="button" onclick="updateSrc()">Next image</button>
+      <img src="" class="displaynone" id="imageID" alt="" />
+    </section>
 
-	nav a:hover {
-		background-color: #ddd;
-		color: black;
-	}
+    <div class="box-2">
+      <input
+        type="text"
+        name="firstNumber"
+        id="firstNumber"
+        placeholder="First Number"
+      />
+      <input
+        type="text"
+        name="secondNumber"
+        id="secondNumber"
+        placeholder="Second Number"
+      />
+      <button type="button" id="addButton">Add</button>
+    </div>
 
-	.card {
-		border: 1px solid #333;
-		border-radius: 8px;
-		padding: 12px;
-		margin: 8px;
-		display: inline-block;
-		background: #f4f4f4;
-	}
-</style>
+    <footer>blankfooter</footer>
 
-<body>
-	<nav>
-		<a href="index.html">Home</a>
-		<a href="about.html">About</a>
-		<a href="contact.html">Contact</a>
-	</nav>
-	<h1 id="header">alex's branch</h1>
-	<h2>second changes</h2>
-
-
-	<input id="name" type="text" />
-	<button type="button" onclick="addName(document.getElementById('name').value)">Add Name</button>
-	<button type="button" onClick="removeLastName()">Remove Name</button>
-	<!-- Here -->
-	<div id="warning" class="displaynone">ERROR: YOU CANNOT REMOVE WHEN THERE IS NO ITEMS</div>
-	<ul id="myList"></ul>
-
-	<footer>blankfooter</footer>
-
-	<script src="index.js"></script>
-</body>
-
+    <script src="index.js"></script>
+  </body>
 </html>
