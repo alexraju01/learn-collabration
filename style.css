@@ -37,5 +37,13 @@ h2 {
 }
 
 .displaynone {
-  display: none;
+  display: none !important;
+}
+
+/* ========== IMAGE SECTION ========== */
+.image-section img {
+    max-width: 400px;
+    display: block;
+    border-radius: 2rem;
+    padding: 1rem;    
 }
