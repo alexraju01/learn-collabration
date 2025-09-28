@@ -83,9 +83,10 @@ function updateSrc() {
 }
 
 function addNumbers() {
-  // getting the values from input fields
+  // getting the values from input fields + result 
   const firstNumValue = document.getElementById("firstNumber").value;
   const secNumValue = document.getElementById("secondNumber").value;
+  const result = document.getElementById("result");
 
   // turn the value into int
   const firstNumber = parseFloat(firstNumValue);
@@ -95,9 +96,7 @@ function addNumbers() {
   const sum = firstNumber + secondNumber;
 
   // output the sum and create body tag
-  const resultSumElement = document.createElement("p");
-  resultSumElement.textContent = `The sum is: ${sum}`
-  document.body.appendChild(resultSumElement)
+  result.textContent = `The sum is: ${sum}`;
 }
 
 const addButton = document.getElementById("addButton");
