@@ -1,57 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <title>Document</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" type="text/css" href="style.css" />
-  <title>Document</title>
-</head>
+  <body>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <h1 id="header">alex's branch</h1>
+    <h2>second changes</h2>
 
-<body>
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="contact.html">Contact</a>
-  </nav>
-  <h1 id="header">alex's branch</h1>
-  <h2>second changes</h2>
+    <input id="name" type="text" />
+    <button
+      type="button"
+      onclick="addName(document.getElementById('name').value)"
+    >
+      Add Name
+    </button>
+    <button type="button" onClick="removeLastName()">Remove Name</button>
+    <!-- Here -->
+    <div id="warning" class="displaynone">
+      ERROR: YOU CANNOT REMOVE WHEN THERE IS NO ITEMS
+    </div>
+    <ul id="myList"></ul>
 
-  <input id="name" type="text" />
-  <button type="button" onclick="addName(document.getElementById('name').value)">
-    Add Name
-  </button>
-  <button type="button" onClick="removeLastName()">Remove Name</button>
-  <!-- Here -->
-  <div id="warning" class="displaynone">
-    ERROR: YOU CANNOT REMOVE WHEN THERE IS NO ITEMS
-  </div>
-  <ul id="myList"></ul>
+    <!-- Image Section -->
+    <section class="image-section">
+      <button type="button" onclick="toggleImage()">Toggle Image</button>
+      <button type="button" onclick="updateSrc()">Next image</button>
+      <img src="" class="displaynone" id="imageID" alt="" />
+    </section>
 
-  <!-- Image Section -->
-  <section class="image-section">
-    <button type="button" onclick="toggleImage()">Toggle Image</button>
-    <button type="button" onclick="updateSrc()">Next image</button>
-    <img src="" class="displaynone" id="imageID" alt="" />
-  </section>
+    <!--Number sum add-->
+    <div class="box-2">
+      <input
+        type="number"
+        name="firstNumber"
+        id="firstNumber"
+        placeholder="First Number"
+      />
+      <input
+        type="number"
+        name="secondNumber"
+        id="secondNumber"
+        placeholder="Second Number"
+      />
+      <button type="button" id="addButton">Add</button>
+      <p id="result"></p>
+    </div>
 
-  <!--Number sum add-->
-  <div class="box-2">
-    <input type="number" name="firstNumber" id="firstNumber" placeholder="First Number" />
-    <input type="number" name="secondNumber" id="secondNumber" placeholder="Second Number" />
-    <button type="button" id="addButton">Add</button>
-    <p id="result"></p>
-  </div>
+    <!-- Interview Pairs Section -->
+    <section class="interview-pairs-section">
+      <label for="student-names">Please enter the student names</label>
+      <textarea name="student-names" id="student-names-input"></textarea>
+      <button type="button" onclick="createSets()">Calculate pairings</button>
 
-  <!-- Interview Pairs Section -->
-  <section class="interview-pairs-section">
-    <label for="student-names">Please enter the student names</label>
-    <textarea name="student-names" id="student-names-input"></textarea>
-    <button type="button" onclick="createSets()">Calculate pairings</button>
-  </section>
+      <!-- Inject set 1 pairs here  -->
+      <ul id="set_1"></ul>
+      <ul id="set_2"></ul>
+    </section>
 
-
-  <script src="index.js"></script>
-</body>
-
+    <script src="index.js"></script>
+  </body>
 </html>

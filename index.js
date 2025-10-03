@@ -106,25 +106,40 @@ const studentNameInput = document.getElementById("student-names-input");
 // 2. Splits the string into individual names and stores them in studentArray
 // 3. Checks if there is an odd number of names, and if so adds in a mystery guest
 // 4. Shuffles the studentArray and creates pairs for set_1
-// 5. Shifts all the names in the studentArray left by 1 place (This ensures there is no same pairs in the second set)
+// 5. Shifts all the names in the studentArray left by 1 place (Ensurinng there is no same pairs in the second set)
 // 6. Creates set_2 by using the pearEmUp() function on the shifted studentArray
 function createSets() {
   const studentArray = studentNameInput.value.split("\n");
+  const set_1_ul = document.getElementById("set_1");
+  const set_2_ul = document.getElementById("set_2");
 
-  // if there is an odd number of names provided, MYSTERY_GUEST is added to balance pairs
+  // MYSTERY_GUEST is added to balance pairs if uneven number of names
   if (studentArray.length % 2) {
     studentArray.push("MYSTERY_GUEST");
   }
-  // Shuffle student and then create pairs 
+  // Shuffle student and then create pairs
   shuffle(studentArray);
   const set_1 = pearEmUp(studentArray);
-  
+  // Shifts all the names left by 1 place (Ensuring pairs in new set are unique)
   studentArray.push(studentArray.shift());
-
+  // Creates second set of pairs
   const set_2 = pearEmUp(studentArray);
 
-  console.log("set_1: ", set_1);
-  console.log("set_2: ", set_2);
+  // Ensures list_1 and list_2 is empty before renderPairs() Function is called
+  set_1_ul.innerHTML = "";
+  set_2_ul.innerHTML = "";
+  // Injects pairs into ul elements
+  renderPairs(set_1, set_1_ul);
+  renderPairs(set_2, set_2_ul);
+}
+
+// Creates a new li element which containts the pair and adds this to the target_ul
+function renderPairs(set, target_ul) {
+  for (let i = 0; i < set.length; i++) {
+    const new_li = document.createElement("li");
+    new_li.innerText = `${set[i][0]} + ${set[i][1]}`;
+    target_ul.appendChild(new_li);
+  }
 }
 
 // This function creates an array of pairs
