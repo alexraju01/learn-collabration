@@ -101,39 +101,62 @@ addButton.addEventListener("click", addNumbers);
 // ============ JASON INTERVIEW PAIRING CHALLENGE ============
 const studentNameInput = document.getElementById("student-names-input");
 
-function createPairs() {
-  let studentArray = studentNameInput.value.split("\n");
-  studentArray = ["a", "b", "c"];
+// This function creates
+function createSets() {
+  const studentArray = studentNameInput.value.split("\n");
 
   // if there is an odd number of names provided, MYSTERY_GUEST is added to balance pairs
   if (studentArray.length % 2) {
     studentArray.push("MYSTERY_GUEST");
   }
+  // Shuffle student and then 
+  shuffle(studentArray);
+  pearEmUp(studentArray);
 
-  console.log(studentArray);
-  console.log(shuffle(studentArray));
+  const set_1 = pearEmUp(studentArray);
+
+  studentArray.push(studentArray.shift());
+
+  const set_2 = pearEmUp(studentArray);
+
+  console.log("set_1: ", set_1);
+  console.log("set_2: ", set_2);
 }
 
-// This shuffles an array randomly
-function shuffle() {
-  testArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+// This function creates an array of pairs
+// Input: [a, b, c, d, e, f]
+// Output is in the format: [[a, b], [c, d], [e, f]]
+function pearEmUp(arr) {
+  const pairs = [];
+
+  for (let i = 0; i < arr.length; i += 2) {
+    pairs.push([arr[i], arr[i + 1]]);
+  }
+  return pairs;
 }
 
-let n = 0;
-while (n < 5) {
-  n++;
-  console.log(Math.floor(Math.random() * 6));
+// Shuffles array randomly using "Fisher-Yates" method
+function shuffle(arr) {
+  let i = arr.length,
+    j,
+    temp;
+  while (i-- > 0) {
+    j = Math.floor(Math.random() * (i + 1));
+    temp = arr[j];
+    arr[j] = arr[i];
+    arr[i] = temp;
+  }
+  return arr;
 }
 
 /* ============== INTERVIEW PAIR LOGIC LOGIC ==============
   1. Get student names input from user as string
   2. Split studentNames string to individual names and store in an Array
   3. If there is an odd number of studentsNames, add a Mystery_Guest to balance pairs
-
   4. Shuffle all names within StudentArray randomly
-  5. Create first set of pairs from ShuffledStudentArray
-  6. Shuffle again and create seccond set of pairs
-  7. Compare second set of pairs with the first
-  8. If any of the pairs are the same as the first set, go back to step 6
-     Else output both sets of pairs (all pairs are now unique from the first set and second set) 
+  5. Created set_1 pairs
+  6. shifted StudentArray by 1 to the left 
+  7. Created set_2 pairs
+
+  8. Output the set_1 and set_2 <----- 
 */
