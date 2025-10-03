@@ -3,6 +3,10 @@
   color: white;
 }
 
+* {
+  font-family: "Fira Code", monospace;
+}
+
 nav {
   background-color: #333;
   overflow: hidden;
@@ -23,7 +27,7 @@ nav a:hover {
 }
 
 button:active {
-    transform: scale(1.5);
+  transform: scale(1.5);
 }
 
 .card {
@@ -46,23 +50,171 @@ h2 {
 
 /* ========== IMAGE SECTION ========== */
 .image-section img {
-    max-width: 400px;
-    display: block;
-    border-radius: 2rem;
-    padding: 1rem;    
+  max-width: 400px;
+  display: block;
+  border-radius: 2rem;
+  padding: 1rem;
 }
 
-/* ========== INTERVIEW PAIRS SECTION ========== */
+/* ====== INTERVIEW PAIRS SECTION ====== */
 .interview-pairs-section {
-  background-color: palevioletred;
-  margin-top: 4rem;
-  padding: 1rem;
+  margin: 4rem 1rem;
+  padding: 2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 1.25rem;
+  background: #151923;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 1rem;
+  box-shadow: 0 10px 24px rgba(255, 0, 0, 0.45);
+}
+
+.interview-pairs-section h1 {
+  font-size: 1.9rem;
+  margin: 0.25rem 0 0.5rem;
+  text-align: center;
+  color: #e6e6ea;
+  letter-spacing: 0.2px;
+}
+
+.student-pairs-container h3,
+#pair-format {
+  color: #9aa3b2;
 }
 
 .interview-pairs-section textarea {
-  min-width: 200px;
-  min-height: 8rem;
+  width: 100%;
+  max-width: 640px;
+  min-height: 9rem;
+  border-radius: 0.9rem;
+  padding: 1rem 1.1rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: #1b2130;
+  color: #e6e6ea;
+  font-size: 1rem;
+  resize: vertical;
+  transition: border-color 0.25s, box-shadow 0.25s, transform 0.1s;
+}
+
+.interview-pairs-section textarea:focus {
+  outline: none;
+  border-color: rgba(120, 140, 255, 0.45);
+  box-shadow: 0 0 0 3px rgba(90, 126, 255, 0.35);
+}
+
+.calc-pairs-btn {
+  position: relative;
+  overflow: hidden;
+  border-radius: 0.9rem;
+  padding: 0.7rem 1.25rem;
+  margin: 0.75rem 0 0.5rem;
+  background: linear-gradient(135deg, #ff5757, #e23a3a);
+  color: #fff;
+  font-weight: 700;
+  font-size: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  cursor: pointer;
+  transition: transform 0.08s ease, filter 0.25s ease, box-shadow 0.25s ease;
+  box-shadow: 0 8px 22px rgba(226, 58, 58, 0.15);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.calc-pairs-btn:hover {
+  filter: brightness(1.05) saturate(1.05);
+  box-shadow: 0 10px 26px rgba(226, 58, 58, 0.25);
+}
+.calc-pairs-btn:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(90, 126, 255, 0.35);
+}
+
+.calc-pairs-btn:active {
+  transform: translateY(1px) scale(0.99);
+}
+
+.calc-pairs-btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    120px 120px at var(--mx, 50%) var(--my, 50%),
+    rgba(255, 255, 255, 0.35),
+    rgba(255, 255, 255, 0) 60%
+  );
+  opacity: 0;
+  transform: scale(0.6);
+  transition: opacity 0.35s ease, transform 0.35s ease;
+  pointer-events: none;
+}
+
+.calc-pairs-btn:active::before {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.student-pairs-container {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(240px, 1fr));
+  gap: 1.25rem 2rem;
+  align-items: center;
+  width: 100%;
+  max-width: 900px;
+}
+
+@media (max-width: 720px) {
+  .student-pairs-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+.student-pairs-container h3 {
+  margin: 0 0 0.4rem 0;
+  text-align: left;
+  font-weight: 700;
+  color: #9aa3b2;
+}
+
+.interview-pairs-section ul {
+  list-style: none;
+  min-width: 220px;
+  text-align: left;
+  margin: 0;
+  padding: 1rem;
+  border-radius: 0.9rem;
+  color: #fff;
+  font-size: 0.95rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+}
+
+.interview-pairs-section ul li {
+  background: rgba(255, 255, 255, 0.08);
+  padding: 0.55rem 0.8rem;
+  margin: 0.35rem 0;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 0.55rem;
+  font-weight: 500;
+  transform: translateY(6px);
+  opacity: 0;
+  animation: li-in 320ms ease forwards;
+}
+@keyframes li-in {
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+#set_1 {
+  background: linear-gradient(145deg, #0f3120, #0b281a);
+}
+#set_2 {
+  background: linear-gradient(145deg, #11183e, #0e1330);
+}
+
+#pair-format {
+  margin-top: 0.8rem;
+  font-size: 0.92rem;
+  font-style: italic;
+  color: #9aa3b2;
 }

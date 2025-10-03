@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" type="text/css" href="style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap" rel="stylesheet">
     <title>Document</title>
   </head>
 
@@ -57,13 +58,20 @@
 
     <!-- Interview Pairs Section -->
     <section class="interview-pairs-section">
-      <label for="student-names">Please enter the student names</label>
+      <h1>Enter Student Names Below:</h1>
       <textarea name="student-names" id="student-names-input"></textarea>
-      <button type="button" onclick="createSets()">Calculate pairings</button>
+      <button class="calc-pairs-btn" type="button" onclick="createSets()">Calculate pairings</button>
 
-      <!-- Inject set 1 pairs here  -->
-      <ul id="set_1"></ul>
-      <ul id="set_2"></ul>
+      <!-- Inject Student Pairs Here -->
+      <div class="student-pairs-container">
+        <h3>SET 1 -></h3>
+        <ul id="set_1">
+        </ul>
+        <h3>SET 2 -></h3>        
+        <ul id="set_2">
+        </ul>
+      </div>
+      <h3 id="pair-format">[FORMAT: INTERVIEWER + INTERVIEWEE]</h3>
     </section>
 
     <script src="index.js"></script>
