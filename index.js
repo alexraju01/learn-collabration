@@ -78,6 +78,26 @@ function updateSrc() {
   }
 }
 
+function addNumbers() {
+  // getting the values from input fields + result 
+  const firstNumValue = document.getElementById("firstNumber").value;
+  const secNumValue = document.getElementById("secondNumber").value;
+  const result = document.getElementById("result");
+
+  // turn the value into int
+  const firstNumber = parseFloat(firstNumValue);
+  const secondNumber = parseFloat(secNumValue);
+
+  // calculate the sum
+  const sum = firstNumber + secondNumber;
+
+  // output the sum and create body tag
+  result.textContent = `The sum is: ${sum}`;
+}
+
+const addButton = document.getElementById("addButton");
+addButton.addEventListener("click", addNumbers)
+
 // CORRECT SYNTAX
 // imageID.src = imgSrcList["img_4"]
 // console.log(imgSrcList["img_4"]);

@@ -1,60 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" type="text/css" href="style.css" />
-    <title>Document</title>
-  </head>
 
-  <body>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-    <h1 id="header">alex's branch</h1>
-    <h2>second changes</h2>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" type="text/css" href="style.css" />
+  <title>Document</title>
+</head>
 
-    <input id="name" type="text" />
-    <button
-      type="button"
-      onclick="addName(document.getElementById('name').value)"
-    >
-      Add Name
-    </button>
-    <button type="button" onClick="removeLastName()">Remove Name</button>
-    <!-- Here -->
-    <div id="warning" class="displaynone">
-      ERROR: YOU CANNOT REMOVE WHEN THERE IS NO ITEMS
-    </div>
-    <ul id="myList"></ul>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+  <h1 id="header">alex's branch</h1>
+  <h2>second changes</h2>
 
-    <!-- Image Section -->
-    <section class="image-section">
-      <button type="button" onclick="toggleImage()">Toggle Image</button>
-      <button type="button" onclick="updateSrc()">Next image</button>
-      <img src="" class="displaynone" id="imageID" alt="" />
-    </section>
+  <input id="name" type="text" />
+  <button type="button" onclick="addName(document.getElementById('name').value)">
+    Add Name
+  </button>
+  <button type="button" onClick="removeLastName()">Remove Name</button>
+  <!-- Here -->
+  <div id="warning" class="displaynone">
+    ERROR: YOU CANNOT REMOVE WHEN THERE IS NO ITEMS
+  </div>
+  <ul id="myList"></ul>
 
-    <div class="box-2">
-      <input
-        type="text"
-        name="firstNumber"
-        id="firstNumber"
-        placeholder="First Number"
-      />
-      <input
-        type="text"
-        name="secondNumber"
-        id="secondNumber"
-        placeholder="Second Number"
-      />
-      <button type="button" id="addButton">Add</button>
-    </div>
+  <!-- Image Section -->
+  <section class="image-section">
+    <button type="button" onclick="toggleImage()">Toggle Image</button>
+    <button type="button" onclick="updateSrc()">Next image</button>
+    <img src="" class="displaynone" id="imageID" alt="" />
+  </section>
 
-    <footer>blankfooter</footer>
+  <!--Number sum add-->
+  <div class="box-2">
+    <input type="number" name="firstNumber" id="firstNumber" placeholder="First Number" />
+    <input type="number" name="secondNumber" id="secondNumber" placeholder="Second Number" />
+    <button type="button" id="addButton">Add</button>
+    <p id="result"></p>
+  </div>
 
-    <script src="index.js"></script>
-  </body>
+
+  <script src="index.js"></script>
+</body>
+
 </html>
