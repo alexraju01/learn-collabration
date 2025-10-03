@@ -101,7 +101,13 @@ addButton.addEventListener("click", addNumbers);
 // ============ JASON INTERVIEW PAIRING CHALLENGE ============
 const studentNameInput = document.getElementById("student-names-input");
 
-// This function creates
+// This function does the following:
+// 1. Takes the users input of student names as a string
+// 2. Splits the string into individual names and stores them in studentArray
+// 3. Checks if there is an odd number of names, and if so adds in a mystery guest
+// 4. Shuffles the studentArray and creates pairs for set_1
+// 5. Shifts all the names in the studentArray left by 1 place (This ensures there is no same pairs in the second set)
+// 6. Creates set_2 by using the pearEmUp() function on the shifted studentArray
 function createSets() {
   const studentArray = studentNameInput.value.split("\n");
 
@@ -109,12 +115,10 @@ function createSets() {
   if (studentArray.length % 2) {
     studentArray.push("MYSTERY_GUEST");
   }
-  // Shuffle student and then 
+  // Shuffle student and then create pairs 
   shuffle(studentArray);
-  pearEmUp(studentArray);
-
   const set_1 = pearEmUp(studentArray);
-
+  
   studentArray.push(studentArray.shift());
 
   const set_2 = pearEmUp(studentArray);
