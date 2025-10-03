@@ -51,3 +51,18 @@ h2 {
     border-radius: 2rem;
     padding: 1rem;    
 }
+
+/* ========== INTERVIEW PAIRS SECTION ========== */
+.interview-pairs-section {
+  background-color: palevioletred;
+  margin-top: 4rem;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.interview-pairs-section textarea {
+  min-width: 200px;
+  min-height: 8rem;
+}
