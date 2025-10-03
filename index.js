@@ -79,7 +79,7 @@ function updateSrc() {
 }
 
 function addNumbers() {
-  // getting the values from input fields + result 
+  // getting the values from input fields + result
   const firstNumValue = document.getElementById("firstNumber").value;
   const secNumValue = document.getElementById("secondNumber").value;
   const result = document.getElementById("result");
@@ -96,17 +96,44 @@ function addNumbers() {
 }
 
 const addButton = document.getElementById("addButton");
-addButton.addEventListener("click", addNumbers)
+addButton.addEventListener("click", addNumbers);
 
-// CORRECT SYNTAX
-// imageID.src = imgSrcList["img_4"]
-// console.log(imgSrcList["img_4"]);
+// ============ JASON INTERVIEW PAIRING CHALLENGE ============
+const studentNameInput = document.getElementById("student-names-input");
 
-// 3. Make a two text input that accept numbers between 0 and 100. Add a button to sum the two numbers and display the answer.
+function createPairs() {
+  let studentArray = studentNameInput.value.split("\n");
+  studentArray = ["a", "b", "c"];
 
-// ============ MDN DOCS EXAMPLE ============
-// const object = { a: 1, b: 2, c: 3 };
+  // if there is an odd number of names provided, MYSTERY_GUEST is added to balance pairs
+  if (studentArray.length % 2) {
+    studentArray.push("MYSTERY_GUEST");
+  }
 
-// for (const property in object) {
-//   console.log(`${property}: ${object[property]}`);
-// }
+  console.log(studentArray);
+  console.log(shuffle(studentArray));
+}
+
+// This shuffles an array randomly
+function shuffle() {
+  testArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+}
+
+let n = 0;
+while (n < 5) {
+  n++;
+  console.log(Math.floor(Math.random() * 6));
+}
+
+/* ============== INTERVIEW PAIR LOGIC LOGIC ==============
+  1. Get student names input from user as string
+  2. Split studentNames string to individual names and store in an Array
+  3. If there is an odd number of studentsNames, add a Mystery_Guest to balance pairs
+
+  4. Shuffle all names within StudentArray randomly
+  5. Create first set of pairs from ShuffledStudentArray
+  6. Shuffle again and create seccond set of pairs
+  7. Compare second set of pairs with the first
+  8. If any of the pairs are the same as the first set, go back to step 6
+     Else output both sets of pairs (all pairs are now unique from the first set and second set) 
+*/
