@@ -109,9 +109,31 @@ const studentNameInput = document.getElementById("student-names-input");
 // 5. Shifts all the names in the studentArray left by 1 place (Ensurinng there is no same pairs in the second set)
 // 6. Creates set_2 by using the pearEmUp() function on the shifted studentArray
 function createSets() {
-  const studentArray = studentNameInput.value.split("\n");
   const set_1_ul = document.getElementById("set_1");
   const set_2_ul = document.getElementById("set_2");
+
+  let studentArray = [...studentNameInput.value.split("\n")]; //FORCE define as an array
+
+  /**
+   * @summary
+   * For loop through each name.
+   * Trim leading and ending whitespaces from the name.
+   * Check if name is NOT empty -> return non empty names.
+   * @return Names that are not empty
+   */
+  // TRIM
+  // E.G. INPUT:  [ . . ]
+  // E.G. OUTPUT:  [. .]
+  const filteredArr = studentArray.filter((name) => {
+    name = name.trim(); //removes white space from before and after + \n
+    if (name !== "") {
+      //checks if name is NOT empty
+      return name; //adds name to the filtered array
+    }
+  });
+
+  //reassign that arry values as the filtered values
+  studentArray = [...filteredArr];
 
   // MYSTERY_GUEST is added to balance pairs if uneven number of names
   if (studentArray.length % 2) {
@@ -171,11 +193,12 @@ function shuffle(arr) {
 // ============ COPY SET TO CLIPBOARD ============
 function copyToClipboard(setID) {
   const listItems = document.querySelectorAll(`${setID} li`);
-  const UpdatedClipboard = []
+  const UpdatedClipboard = [];
 
-  for (let i = 0; i < listItems.length; i++) {    
-    UpdatedClipboard.push(listItems[i].textContent)
+  for (let i = 0; i < listItems.length; i++) {
+    UpdatedClipboard.push(listItems[i].textContent);
   }
-  // Update clipboard with pairs 
-  navigator.clipboard.writeText(UpdatedClipboard.join("\n"))
+  // Update clipboard with pairs and alert user
+  navigator.clipboard.writeText(UpdatedClipboard.join("\n"));
+  window.alert(`${UpdatedClipboard.join("\n")} \nCopied to your clipboard`);
 }
