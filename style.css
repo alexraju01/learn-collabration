@@ -162,6 +162,26 @@ h2 {
   max-width: 900px;
 }
 
+.set-details {
+  display: flex;
+  gap: 1rem;
+}
+
+.set-details a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.set-details svg:hover {
+  scale: 1.2;
+  cursor: pointer;
+  color: rgb(0, 200, 255);
+  transition: all 0.2s ease-in-out;
+}
+.set-details svg:active {
+  scale: .93;
+}
+
 @media (max-width: 720px) {
   .student-pairs-container {
     grid-template-columns: 1fr;

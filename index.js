@@ -168,14 +168,14 @@ function shuffle(arr) {
   return arr;
 }
 
-/* ============== INTERVIEW PAIR LOGIC LOGIC ==============
-  1. Get student names input from user as string
-  2. Split studentNames string to individual names and store in an Array
-  3. If there is an odd number of studentsNames, add a Mystery_Guest to balance pairs
-  4. Shuffle all names within StudentArray randomly
-  5. Created set_1 pairs
-  6. shifted StudentArray by 1 to the left 
-  7. Created set_2 pairs
+// ============ COPY SET TO CLIPBOARD ============
+function copyToClipboard(setID) {
+  const listItems = document.querySelectorAll(`${setID} li`);
+  const UpdatedClipboard = []
 
-  8. Output the set_1 and set_2 <----- 
-*/
+  for (let i = 0; i < listItems.length; i++) {    
+    UpdatedClipboard.push(listItems[i].textContent)
+  }
+  // Update clipboard with pairs 
+  navigator.clipboard.writeText(UpdatedClipboard.join("\n"))
+}
