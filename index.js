@@ -176,6 +176,7 @@ function copyToClipboard(setID) {
   for (let i = 0; i < listItems.length; i++) {    
     UpdatedClipboard.push(listItems[i].textContent)
   }
-  // Update clipboard with pairs 
+  // Update clipboard with pairs and alert user 
   navigator.clipboard.writeText(UpdatedClipboard.join("\n"))
+  window.alert(`${UpdatedClipboard.join("\n")} \nCopied to your clipboard`)
 }
