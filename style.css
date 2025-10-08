@@ -242,7 +242,17 @@ h2 {
 /* QUIZ PAGE */
 /* QUIZ SECTION */
 
-.quiz-section {}
+.quiz-section {
+  background-color: teal;
+}
+
+.quiz-timer-container {
+  border: 2px solid hotpink;
+  position: absolute;
+  right: 2rem;
+  top: 80px;
+  padding: 1rem;
+}
 
 .quiz-container {
   border: 2px solid red;
