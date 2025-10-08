@@ -63,5 +63,61 @@ const quizQuestions = [
 ];
 
 const quizContainer = document.getElementById("quiz-container");
+const startBtn = document.getElementById("start-btn");
+let quizCurrentIndex = 0;
 
-function startQuiz() {}
+const startQuiz = () => {
+  quizCurrentIndex = 0;
+  renderQuiz();
+};
+
+const renderQuiz = () => {
+  const q = quizQuestions[quizCurrentIndex];
+
+  quizContainer.innerHTML = `
+    <h1>${q.question}</h1>
+    <ul id="choices"></ul>
+    `;
+
+  const ul = document.getElementById("choices");
+
+  q.choices.forEach((choice) => {
+    const li = document.createElement("li");
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "choice";
+    btn.dataset.value = choice;
+    btn.innerText = choice;
+    li.appendChild(btn);
+    ul.appendChild(li);
+  });
+};
+
+document.addEventListener("click", (e) => {
+  if (e.target === startBtn) {    
+    startQuiz();
+    return;
+  }
+
+  if (e.target.matches("#choices .choice")) {
+    console.log("you pressed a choice");
+  }
+});
+
+/**
+ * Timer
+ * While Function
+ * Sleep 1 second,
+ * decriment timer
+ * loop
+ *
+ * if hits <= 0 {end}
+ */
+
+/**
+ * LOGIC
+ *
+ * 1. Create startQuiz function that resets index of quiz
+ * 2. Create renderQuiz function --> renders quiz
+ * 3.
+ */
