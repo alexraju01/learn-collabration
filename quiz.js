@@ -76,31 +76,44 @@ const renderQuiz = () => {
 
   quizContainer.innerHTML = `
     <h1>${q.question}</h1>
-    <ul id="choices"></ul>
-    `;
+    <ul id="choices"></ul>`;
 
   const ul = document.getElementById("choices");
 
   q.choices.forEach((choice) => {
     const li = document.createElement("li");
-    const btn = document.createElement("button");
-    btn.type = "button";
-    btn.className = "choice";
-    btn.dataset.value = choice;
-    btn.innerText = choice;
-    li.appendChild(btn);
+
+    li.innerHTML = `
+    <button type="button" class="choice" dataset-value =${choice}>${choice}</button>`;
     ul.appendChild(li);
   });
 };
 
 document.addEventListener("click", (e) => {
-  if (e.target === startBtn) {    
+  if (e.target === startBtn) {
     startQuiz();
     return;
   }
-
+  //They have pressed on a choice
   if (e.target.matches("#choices .choice")) {
-    console.log("you pressed a choice");
+    const matches =
+      e.target.innerHTML === quizQuestions[quizCurrentIndex].answer;
+
+    if (quizCurrentIndex >= quizQuestions.length - 1) {
+      // All questions complete
+      quizContainer.innerHTML = `<h1>You completed the quiz</h1>`;
+    } else if (matches) {
+      //Correct Answer
+      console.log("You pressed correct");
+      quizCurrentIndex++;
+      renderQuiz();
+    } else {
+      //Incorrect Answer
+      console.log("You pressed wrong");
+      quizCurrentIndex++;
+      renderQuiz();
+    }
+   
   }
 });
 
