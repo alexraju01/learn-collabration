@@ -239,7 +239,7 @@ h2 {
   color: #9aa3b2;
 }
 
-/* QUIZ PAGE */
+/* ==================== QUIZ PAGE ==================== */
 /* QUIZ SECTION */
 .quiz-section,
 .leaderboard-section {
@@ -334,7 +334,7 @@ h2 {
 
 /* RESPONSIVE DEISGN */
 @media (max-width: 600px) {
-  .quiz-section {
+  .quiz-section, .leaderboard-section {
     margin: 1rem;
     padding: 1.5rem;
   }
@@ -385,39 +385,42 @@ h2 {
   display: flex;
   flex-direction: column;
   gap: 12px;
-  --cols: 2fr 1fr 1fr;
 }
 
 .leaderboard .header,
 .leaderboard .score {
   display: grid;
-  grid-template-columns: var(--cols);
+  grid-template-columns: minmax(3ch, 0.75fr) 2fr 1fr 1fr;
   align-items: center;
   gap: 1rem;
   padding: 12px 16px;
-}
-
-.leaderboard .header > :nth-child(1),
-.leaderboard .score > :nth-child(1) {
-  justify-self: start;
-  text-align: left;
-}
-
-.leaderboard .header > :nth-child(2),
-.leaderboard .header > :nth-child(3),
-.leaderboard .score > :nth-child(2),
-.leaderboard .score > :nth-child(3) {
   justify-self: center;
   text-align: center;
 }
 
 .leaderboard .score {
   border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 0.5rem;
+  transition: all 0.2s ease;
 }
+
+.leaderboard .score:hover {
+  background-color: #ff4081 !important;
+  border-radius: 1rem;
+  font-weight: bolder;
+}
+
 .leaderboard .score:nth-of-type(even) {
   background: rgba(255, 255, 255, 0.03);
 }
 
-.leaderboard .score:hover {
-  background-color: #ff4080b9 !important;
+@media (max-width: 520px) {
+  .leaderboard {
+    --cols: minmax(2.5ch, 0.6fr) 2fr 1fr 1fr;
+  }
+
+  .header {
+    font-weight: 200;
+    font-size: 0.5rem;
+  }
 }
