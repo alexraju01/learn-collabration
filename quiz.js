@@ -66,6 +66,10 @@ const quizContainer = document.getElementById("quiz-container");
 const quizCountdown = document.getElementById("quiz-timer");
 const quizScore = document.getElementById("quiz-score");
 const startBtn = document.getElementById("start-btn");
+const correctAudio = new Audio("assets/sound-effects/correct-6033.mp3");
+const incorrectAudio = new Audio(
+  "assets/sound-effects/wah-wah-sad-trombone-6347.mp3"
+);
 
 let quizCurrentIndex = 0;
 let score = 0;
@@ -123,10 +127,17 @@ document.addEventListener("click", (e) => {
       e.target.innerHTML === quizQuestions[quizCurrentIndex].answer;
 
     if (matches) {
+      incorrectAudio.pause();
+      correctAudio.currentTime = 0;
+      correctAudio.play();
       score++;
       quizScore.innerText = `Score: ${score}`;
     } else {
-      time -= 5;
+      correctAudio.pause();
+      incorrectAudio.currentTime = 0;
+      incorrectAudio.playbackRate = 2;
+      incorrectAudio.play();
+      time -= 4;
       updateTime();
     }
 

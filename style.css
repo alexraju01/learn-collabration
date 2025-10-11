@@ -270,3 +270,16 @@ h2 {
   align-items: center;
   flex-direction: column;
 }
+
+#choices li {
+  list-style: none;
+}
+
+#choices button {
+  margin: 0.5rem;
+  padding:1rem;
+  background: transparent;
+  font-size: 1.5rem;
+  color: #fff;
+  cursor: pointer;
+}
