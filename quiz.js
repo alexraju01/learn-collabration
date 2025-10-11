@@ -63,7 +63,7 @@ const quizQuestions = [
 ];
 
 const scoreTimerContainerEl = document.querySelector(".score-timer-container");
-const leaderboardSectionEl = document.getElementById("leaderboard-section")
+const leaderboardSectionEl = document.getElementById("leaderboard-section");
 const quizCountdown = document.getElementById("quiz-timer");
 const quizScore = document.getElementById("quiz-score");
 const quizContainer = document.getElementById("quiz-container");
@@ -97,6 +97,7 @@ const startQuiz = () => {
 
 const renderQuiz = () => {
   const q = quizQuestions[quizCurrentIndex];
+  if (!q) return;
 
   quizContainer.innerHTML = `
     <h1>${q.question}</h1>
@@ -117,9 +118,9 @@ let timmerId = null;
 
 document.addEventListener("click", (e) => {
   if (e.target === startBtn) {
-    readyAudio.play()
+    readyAudio.play();
     scoreTimerContainerEl.classList.toggle("displaynone");
-    leaderboardSectionEl.classList.toggle("displaynone")
+    leaderboardSectionEl.classList.toggle("displaynone");
 
     startQuiz();
     quizScore.innerText = `Score: ${score}`;
@@ -151,7 +152,7 @@ document.addEventListener("click", (e) => {
     quizCurrentIndex++;
     renderQuiz();
 
-    if (quizCurrentIndex >= quizQuestions.length - 1) {
+    if (quizCurrentIndex >= quizQuestions.length) {
       quizContainer.innerHTML = `<h1>You completed the quiz</h1>`;
       clearInterval(timmerId);
     }

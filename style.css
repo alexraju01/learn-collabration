@@ -334,7 +334,8 @@ h2 {
 
 /* RESPONSIVE DEISGN */
 @media (max-width: 600px) {
-  .quiz-section, .leaderboard-section {
+  .quiz-section,
+  .leaderboard-section {
     margin: 1rem;
     padding: 1.5rem;
   }
