@@ -63,6 +63,7 @@ const quizQuestions = [
 ];
 
 const scoreTimerContainerEl = document.querySelector(".score-timer-container");
+const leaderboardSectionEl = document.getElementById("leaderboard-section")
 const quizCountdown = document.getElementById("quiz-timer");
 const quizScore = document.getElementById("quiz-score");
 const quizContainer = document.getElementById("quiz-container");
@@ -118,6 +119,8 @@ document.addEventListener("click", (e) => {
   if (e.target === startBtn) {
     readyAudio.play()
     scoreTimerContainerEl.classList.toggle("displaynone");
+    leaderboardSectionEl.classList.toggle("displaynone")
+
     startQuiz();
     quizScore.innerText = `Score: ${score}`;
 
