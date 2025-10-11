@@ -122,43 +122,29 @@ document.addEventListener("click", (e) => {
     const matches =
       e.target.innerHTML === quizQuestions[quizCurrentIndex].answer;
 
-    // All questions complete
+    if (matches) {
+      score++;
+      quizScore.innerText = `Score: ${score}`;
+    } else {
+      time -= 5;
+      updateTime();
+    }
+
+    quizCurrentIndex++;
+    console.log(quizCurrentIndex);
+    renderQuiz();
+
     if (quizCurrentIndex >= quizQuestions.length - 1) {
       quizContainer.innerHTML = `<h1>You completed the quiz</h1>`;
       clearInterval(timmerId);
-      //Correct Answer
-    } else if (matches) {
-      console.log("You pressed correct");
-      score++;
-
-      quizScore.innerText = `Score: ${score}`;
-      quizCurrentIndex++;
-      renderQuiz();
-      //Incorrect Answer
-    } else {
-      console.log("You pressed wrong");
-      time -= 5;
-      updateTime();
-      quizCurrentIndex++;
-      renderQuiz();
     }
   }
 });
 
 /**
- * Timer
- * While Function
- * Sleep 1 second,
- * decriment timer
- * loop
- *
- * if hits <= 0 {end}
- */
-
-/**
- * LOGIC
- *
- * 1. Create startQuiz function that resets index of quiz
- * 2. Create renderQuiz function --> renders quiz
- * 3.
+ * check if selected choice
+ * if choice correct - score++
+ * if choice incorrect - timer -= 5s
+ * if all questions complete - render finish quiz
+ * render quiz
  */
