@@ -63,8 +63,25 @@ const quizQuestions = [
 ];
 
 const quizContainer = document.getElementById("quiz-container");
+const quizCountdown = document.getElementById("quiz-timer");
+const quizScore = document.getElementById("quiz-score");
 const startBtn = document.getElementById("start-btn");
+
 let quizCurrentIndex = 0;
+let score = 0;
+const startingMins = 1.5;
+let time = startingMins * 60;
+
+function updateTime() {
+  if (time < 0)
+    return (quizContainer.innerHTML = "<h1>Ooops you ran out of time! </h1>");
+  const mins = Math.floor(time / 60);
+  let seconds = time % 60;
+  seconds = seconds >= 10 ? seconds : "0" + seconds;
+
+  quizCountdown.innerText = `${mins}:${seconds}`;
+  time--;
+}
 
 const startQuiz = () => {
   quizCurrentIndex = 0;
@@ -89,31 +106,42 @@ const renderQuiz = () => {
   });
 };
 
+let timmerId = null;
+
 document.addEventListener("click", (e) => {
   if (e.target === startBtn) {
     startQuiz();
-    return;
+    quizScore.innerText = `Score: ${score}`;
+
+    updateTime(); //Start timer and keep updating every second
+
+    return (timmerId = setInterval(updateTime, 1000));
   }
-  //They have pressed on a choice
+  // Clicked a choice
   if (e.target.matches("#choices .choice")) {
     const matches =
       e.target.innerHTML === quizQuestions[quizCurrentIndex].answer;
 
+    // All questions complete
     if (quizCurrentIndex >= quizQuestions.length - 1) {
-      // All questions complete
       quizContainer.innerHTML = `<h1>You completed the quiz</h1>`;
-    } else if (matches) {
+      clearInterval(timmerId);
       //Correct Answer
+    } else if (matches) {
       console.log("You pressed correct");
+      score++;
+
+      quizScore.innerText = `Score: ${score}`;
       quizCurrentIndex++;
       renderQuiz();
-    } else {
       //Incorrect Answer
+    } else {
       console.log("You pressed wrong");
+      time -= 5;
+      updateTime();
       quizCurrentIndex++;
       renderQuiz();
     }
-   
   }
 });
 
