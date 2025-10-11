@@ -154,11 +154,3 @@ document.addEventListener("click", (e) => {
     }
   }
 });
-
-/**
- * check if selected choice
- * if choice correct - score++
- * if choice incorrect - timer -= 5s
- * if all questions complete - render finish quiz
- * render quiz
- */

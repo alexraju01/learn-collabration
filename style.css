@@ -241,16 +241,16 @@ h2 {
 
 /* QUIZ PAGE */
 /* QUIZ SECTION */
-.quiz-section {
+.quiz-section,
+.leaderboard-section {
   margin: 2rem auto;
   max-width: 900px;
   border-radius: 16px;
-  background: linear-gradient(145deg, #121212, #1e1e1e); 
-  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.5); 
+  background: linear-gradient(145deg, #121212, #1e1e1e);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.5);
   padding: 2rem;
   animation: fadeIn 0.5s ease-out;
 }
-
 
 .score-timer-container {
   display: flex;
@@ -259,25 +259,27 @@ h2 {
   padding: 1.5rem;
   font-size: 1.3rem;
   font-weight: 700;
-  color: #d1d1d1; 
-  background-color: rgba(0, 0, 0, 0.4); 
+  color: #d1d1d1;
+  background-color: rgba(0, 0, 0, 0.4);
   border-radius: 10px;
   margin-bottom: 1.5rem;
-  border: 1px solid rgba(255, 255, 255, 0.1); 
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.quiz-score-container, .quiz-timer-container {
-  background-color: #212121; 
-  border: 2px solid #ff4081; 
+.quiz-score-container,
+.quiz-timer-container {
+  background-color: #212121;
+  border: 2px solid #ff4081;
   border-radius: 10px;
   padding: 0.8rem 1.8rem;
-  transition: all 0.3s ease; 
+  transition: all 0.3s ease;
 }
 
-.quiz-score-container:hover, .quiz-timer-container:hover {
-  transform: translateY(-4px); 
+.quiz-score-container:hover,
+.quiz-timer-container:hover {
+  transform: translateY(-4px);
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.6);
-  background-color: #2c2c2c; 
+  background-color: #2c2c2c;
 }
 
 .quiz-container {
@@ -286,7 +288,7 @@ h2 {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  gap: 2rem; 
+  gap: 2rem;
 }
 
 .quiz-container span {
@@ -297,7 +299,7 @@ h2 {
 #choices li {
   list-style: none;
   width: 100%;
-  max-width: 600px; 
+  max-width: 600px;
 }
 
 .start-btn {
@@ -305,30 +307,30 @@ h2 {
   width: auto !important;
 }
 
-#choices button, .start-btn {
+#choices button,
+.start-btn {
   margin: 0.6rem 0;
   padding: 1.2rem 2.5rem;
-  background: #282828; 
+  background: #282828;
   font-size: 1.3rem;
   font-weight: 600;
-  color: #e0e0e0; 
-  border: 1px solid rgba(255, 64, 129, 0.5); 
+  color: #e0e0e0;
+  border: 1px solid rgba(255, 64, 129, 0.5);
   border-radius: 12px;
   cursor: pointer;
   transition: all 0.3s ease;
   width: 100%;
   text-align: left;
   position: relative;
-
 }
 
-#choices button:hover, .start-btn:hover {
-  background: #ff4081; 
+#choices button:hover,
+.start-btn:hover {
+  background: #ff4081;
   color: #ffffff;
   transform: translateY(-3px);
   box-shadow: 0 4px 12px rgba(255, 64, 129, 0.4);
 }
-
 
 /* RESPONSIVE DEISGN */
 @media (max-width: 600px) {
@@ -343,7 +345,8 @@ h2 {
     font-size: 1.1rem;
   }
 
-  .quiz-score-container, .quiz-timer-container {
+  .quiz-score-container,
+  .quiz-timer-container {
     width: 100%;
     text-align: center;
     padding: 0.6rem 1.2rem;
@@ -356,6 +359,65 @@ h2 {
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* LEADERBOARD SECTION */
+.leaderboard-section h1 {
+  text-align: center;
+}
+
+.leaderboard-section h1 span {
+  color: #ff4081;
+  text-transform: capitalize;
+}
+
+.leaderboard {
+  max-width: 900px;
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  --cols: 2fr 1fr 1fr;
+}
+
+.leaderboard .header,
+.leaderboard .score {
+  display: grid;
+  grid-template-columns: var(--cols);
+  align-items: center;
+  gap: 1rem;
+  padding: 12px 16px;
+}
+
+.leaderboard .header > :nth-child(1),
+.leaderboard .score > :nth-child(1) {
+  justify-self: start;
+  text-align: left;
+}
+
+.leaderboard .header > :nth-child(2),
+.leaderboard .header > :nth-child(3),
+.leaderboard .score > :nth-child(2),
+.leaderboard .score > :nth-child(3) {
+  justify-self: center;
+  text-align: center;
+}
+
+.leaderboard .score {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+.leaderboard .score:nth-of-type(even) {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.leaderboard .score:hover {
+  background-color: #ff4080b9 !important;
 }
