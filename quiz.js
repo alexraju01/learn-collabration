@@ -62,14 +62,16 @@ const quizQuestions = [
   },
 ];
 
-const quizContainer = document.getElementById("quiz-container");
+const scoreTimerContainerEl = document.querySelector(".score-timer-container");
 const quizCountdown = document.getElementById("quiz-timer");
 const quizScore = document.getElementById("quiz-score");
+const quizContainer = document.getElementById("quiz-container");
 const startBtn = document.getElementById("start-btn");
 const correctAudio = new Audio("assets/sound-effects/correct-6033.mp3");
 const incorrectAudio = new Audio(
   "assets/sound-effects/wah-wah-sad-trombone-6347.mp3"
 );
+const readyAudio = new Audio("assets/sound-effects/ready-fight.mp3");
 
 let quizCurrentIndex = 0;
 let score = 0;
@@ -114,6 +116,8 @@ let timmerId = null;
 
 document.addEventListener("click", (e) => {
   if (e.target === startBtn) {
+    readyAudio.play()
+    scoreTimerContainerEl.classList.toggle("displaynone");
     startQuiz();
     quizScore.innerText = `Score: ${score}`;
 
@@ -142,7 +146,6 @@ document.addEventListener("click", (e) => {
     }
 
     quizCurrentIndex++;
-    console.log(quizCurrentIndex);
     renderQuiz();
 
     if (quizCurrentIndex >= quizQuestions.length - 1) {
